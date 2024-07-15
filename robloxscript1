@@ -1,0 +1,16 @@
+local name = "Chipzryum"
+local function setting()
+	Baseplate.Material = "Wood"
+	brick.Transparency = 0.5
+	wait(5)
+	Baseplate.Material = "Glass"
+end
+
+
+local function nameprint()
+  print(name .. 123)
+end
+
+
+nameprint()
+brick.Touched:Connect(explode)
