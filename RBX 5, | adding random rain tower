@@ -1,0 +1,71 @@
+
+
+
+local Players = game:GetService("Players")
+playerposx = 0
+playerposy = 0
+rainchosen = nil
+_G.density = 0.5
+
+-- DOG AND CAT RAIN
+
+local tower = {"dog", "cat", "amongus"}
+
+
+
+
+
+local function towerain()
+	while rainchosen == "dcrain" do
+		
+		local dog = game.Workspace.Dog
+		local cat = game.Workspace.Cat
+		local rain = tower[math.random(1,#tower)]
+		local amongus = game.Workspace.amongus
+	
+		wait(_G.density)
+		if rain == "dog" then
+			local clonedmodel = dog:clone() --Replace ModelLocation
+			
+			clonedmodel.Parent = game.Workspace  -- rain
+			clonedmodel.PrimaryPart.CFrame = CFrame.new(-49.4, 41.5, -11.9)   -- rain
+
+
+		elseif rain == "cat" then
+			local clonedmodel = cat:clone() --Replace ModelLocation
+			clonedmodel.Parent = game.Workspace
+			clonedmodel.PrimaryPart.CFrame = CFrame.new(-49.4, 41.5, -11.9)   -- rain
+
+
+		elseif rain == "amogu" then
+			local clonedmodel = amongus:clone() --Replace ModelLocation
+			clonedmodel.Parent = game.Workspace
+			clonedmodel.PrimaryPart.CFrame = CFrame.new(-49.4, 41.5, -11.9)   -- rain
+		end
+	end
+end
+-- WHEN BUTTON SWITCH CLICKED
+
+button = script.Parent
+button.ClickDetector.MouseClick:Connect(function(Player)
+	
+	if rainchosen == "dcrain" then
+		rainchosen = nil
+		button.BrickColor = BrickColor.new("Really red")
+		wait()
+		button.Material = Enum.Material.SmoothPlastic
+	elseif rainchosen ~= "dcrain" then
+		rainchosen = "dcrain"
+		button.BrickColor = BrickColor.new("Lime green")
+		button.Material = Enum.Material.Neon
+		spawn(towerain)
+
+
+	end
+
+
+end)
+
+
+
+
