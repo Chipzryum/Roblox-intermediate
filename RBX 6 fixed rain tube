@@ -1,0 +1,67 @@
+
+
+
+local Players = game:GetService("Players")
+playerposx = 0
+playerposy = 0
+rainchosen = nil
+
+
+-- DOG AND CAT RAIN
+
+local tower = {"dog", "cat", "amogu"}
+local baseplate = game.Workspace.Baseplate
+
+
+x = 0
+
+local function towerain()
+	while x < 100 do
+
+		local dog = game.Workspace.Dog
+		local cat = game.Workspace.Cat
+		local amongus = game.Workspace.amongus
+		local rain = tower[math.random(1,#tower)]
+		x += 1
+
+		wait(0.1)
+		if rain == "dog" then
+			local clonedmodel = dog:clone() --Replace ModelLocation
+
+			clonedmodel.Parent = game.Workspace  -- rain
+			clonedmodel.PrimaryPart.CFrame = CFrame.new(-49.4, 200, -11.4)   -- rain
+			clonedmodel.PrimaryPart.Touched:Connect(function(rains)
+				if rains == baseplate then
+					clonedmodel:Destroy()
+				end
+			end)
+
+		elseif rain == "cat" then
+			local clonedmodel = cat:clone() --Replace ModelLocation
+			clonedmodel.Parent = game.Workspace
+			clonedmodel.PrimaryPart.CFrame = CFrame.new(-49.4, 200, -11.4)   -- rain
+			clonedmodel.PrimaryPart.Touched:Connect(function(rains)
+				if rains == baseplate then
+					clonedmodel:Destroy()
+				end
+			end)
+
+		elseif rain == "amogu" then
+			local clonedmodel = amongus:clone() --Replace ModelLocation
+			clonedmodel.Parent = game.Workspace
+			clonedmodel.Position = Vector3.new(-49.4, 200, -11.4)   -- rain
+			clonedmodel.Touched:Connect(function(rains)
+				if rains == baseplate then
+					clonedmodel:Destroy()
+				end
+			end)
+		end
+	end
+end
+-- WHEN BUTTON SWITCH CLICKED
+
+towerain()
+
+
+
+
