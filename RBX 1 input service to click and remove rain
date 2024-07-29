@@ -1,0 +1,17 @@
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+local UserInput = game:GetService("UserInputService")
+
+UserInput.InputBegan:Connect(function(input, gameProcessedEvent)
+	local mousetarget = mouse.Target
+	if input.KeyCode == Enum.KeyCode.MouseLeftButton then
+
+		if mousetarget and (mousetarget.Name == "amongus" or mousetarget.Name == "maxwell" or mousetarget.Name == "model") then
+			print("sus")
+			mousetarget:Destroy()
+			
+		end
+	end
+end)
+
+
