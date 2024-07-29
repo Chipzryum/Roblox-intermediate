@@ -1,0 +1,54 @@
+
+
+
+local Players = game:GetService("Players")
+playerposx = 0
+playerposy = 0
+rainchosen = nil
+_G.density = 0.5
+
+-- AMOGNUS RAIN
+
+
+
+
+
+-- player position updater
+
+
+local function amogutower()
+	while rainchosen == "amogurain" do
+		local amogu = game.Workspace.amongus
+		wait(_G.density)
+		
+		local clonedmodel = amogu:clone()
+		clonedmodel.Parent = game.Workspace	
+		clonedmodel.CFrame = CFrame.new(-49.4, 200, -11.9)
+
+
+	end	
+end
+-- WHEN BUTTON SWITCH CLICKED
+
+button = script.Parent
+button.ClickDetector.MouseClick:Connect(function(Player)
+	
+	if rainchosen == "amogurain" then
+		rainchosen = nil
+		button.BrickColor = BrickColor.new("Really red")
+		wait()
+		button.Material = Enum.Material.SmoothPlastic
+	elseif rainchosen ~= "amogurain" then
+		rainchosen = "amogurain"
+		button.BrickColor = BrickColor.new("Lime green")
+		button.Material = Enum.Material.Neon
+		spawn(amogutower)
+
+
+	end
+
+end)
+
+
+
+
