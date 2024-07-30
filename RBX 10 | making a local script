@@ -1,0 +1,23 @@
+-- defining stuff
+local player = game.Players.LocalPlayer
+local UIS = game:GetService("UserInputService")
+local deleter = game.ReplicatedStorage:WaitForChild("deleter")
+local mouse = player:GetMouse()
+
+-- defining items
+local dog = game.Workspace.storage.Dog
+local cat = game.Workspace.storage.Cat
+local amongus = game.Workspace.storage.amongus
+amongusname = "a"
+catname = "c"
+dogname = "d"
+
+listofkeys = {"a", "c", "d"}
+
+-- function to check if player is pressing the right key
+local function tpplayers()
+	
+end
+
+tpplayers()
+
