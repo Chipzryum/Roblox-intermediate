@@ -1,0 +1,51 @@
+local UIS = game:GetService("UserInputService")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local Mouse = LocalPlayer:GetMouse()
+
+local dog = game.Workspace.storage:FindFirstChild("dog")
+local cat = game.Workspace.storage:FindFirstChild("cat")
+local amongus = game.Workspace.storage:FindFirstChild("amongus")
+
+local breakable = {dog, cat, amongus}
+
+-- Function to check if the hovered object is in the breakable list
+local function isBreakableObject(object)
+	for _, breakableObject in ipairs(breakable) do
+		if breakableObject == object then
+			return true
+		end
+	end
+	return false
+end
+
+local function playerInput()
+	UIS.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.Keyboard then
+			local keyPressed = input.KeyCode
+			local hoveredObject = Mouse.Target
+
+			if hoveredObject then
+				print("Hovered Object: " .. hoveredObject.Name) -- Debugging: Check which object is being hovered
+
+				if isBreakableObject(hoveredObject) then
+					local objectName = hoveredObject.Name
+					local firstLetter = objectName:sub(1, 1):lower()
+
+					if firstLetter == keyPressed.Name:lower() then
+						print("Destroying object: " .. hoveredObject.Name)
+						hoveredObject:Destroy()
+					else
+						print("Key does not match first letter of object name.")
+					end
+				else
+					print("Hovered object is not in the breakable list.")
+				end
+			else
+				print("No object hovered.")
+			end
+		end
+	end)
+end
+
+playerInput()
