@@ -1,0 +1,31 @@
+local UIS = game:GetService("UserInputService")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local Mouse = LocalPlayer:GetMouse()
+
+local dog = game.Workspace.storage.dog
+local cat = game.Workspace.storage.cat
+local amongus = game.Workspace.storage.amongus
+
+local breakable = {dog.Name, cat.Name, amongus.Name}
+
+local function playerinput()
+	UIS.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.Keyboard then
+			local keyPressed = input.KeyCode
+			local hoveredObject = Mouse.Target
+
+			if table.find(breakable, hoveredObject) then
+				local objectName = hoveredObject.Name
+				local firstLetter = objectName:sub(1, 1):lower()
+
+				if firstLetter == keyPressed.Name:lower() then
+					print("Destroying object: " .. hoveredObject.Name)
+					hoveredObject:Destroy()
+				end
+			end
+		end
+	end)
+end
+
+playerinput()
