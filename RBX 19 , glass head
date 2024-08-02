@@ -1,0 +1,13 @@
+local blue = game.Workspace.teamblue
+local red = game.Workspace.teamred
+local green = game.Workspace.teamgreen
+
+blue.Touched:Connect(function(hit)
+	if hit.Parent:FindFirstChild("Humanoid") then
+		local head = hit.Parent:FindFirstChild("Head")
+		local weld = Instance.new("Weld")
+		weld.Part1 = head
+		weld.Part0 = blue
+		weld.Parent = workspace
+	end
+end)
