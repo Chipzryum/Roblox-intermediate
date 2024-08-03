@@ -1,0 +1,17 @@
+local blue = game.Workspace.teamblue
+local red = game.Workspace.teamred
+local green = game.Workspace.teamgreen
+
+teams = {blue, red, green}
+
+game.Players.PlayerAdded:Connect(function(Player)
+	Player.CharacterAdded:Connect(function(Character)
+		local head = Character:WaitForChild("Head")
+		local weld = Instance.new("Weld")
+		local chosenTeam = math.random(1, #teams)
+		weld.Part1 = head
+		weld.Part0 = teams[chosenTeam]
+		weld.Parent = head
+		print(chosenTeam)
+	end)
+end)
