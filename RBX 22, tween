@@ -1,0 +1,21 @@
+local tweening = game:GetService("TweenService")
+local amongus = game.Workspace:FindFirstChild("showcase items").amongusshowcase
+
+local tweenAtributes =  TweenInfo.new(
+	1,
+	Enum.EasingStyle.Exponential,
+	Enum.EasingDirection.Out,
+	0,
+	true,
+	2
+)
+
+local tweengoal = 
+{
+	Size = Vector3.new(20, 20, 20);
+	Position = Vector3.new(10, 10, 10)
+}
+
+local makingAmongusBig = tweening:Create(amongus, tweenAtributes, tweengoal)
+
+makingAmongusBig:Play()
