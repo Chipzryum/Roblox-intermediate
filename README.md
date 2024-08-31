@@ -1,8 +1,11 @@
 if there is a | in the name it means it does not work
 
-just a fyi although there not enough LOC for a few commits, keep in mind I am learning a completely new coding language and scripting with my first experience on game development.
-Although the code may not seem like much, I am spending more time on learning as well as the IDE where i'm fixing instances.
-There are also multiple scripts in which case I only upload the ones I am working on.
+I am making a game from scratch on roblox studio.
+
+
+
+<img width="1440" alt="Screenshot 2024-08-03 at 8 03 52 PM" src="https://github.com/user-attachments/assets/eb4738c8-e677-45e0-92a5-4f30f9a54d30">
+<img width="1440" alt="Screenshot 2024-08-02 at 6 23 37 PM" src="https://github.com/user-attachments/assets/95d9e666-8cf6-43bd-b11e-19588bb213f0">
 
 Thank You
 :D
