@@ -1,6 +1,7 @@
 if there is a | in the name it means it does not work
 
 I am making a game from scratch on roblox studio.
+Playable version here: https://www.roblox.com/games/18807516840/Dig-Down-As-Fast-As-You-Can
 
 
 
